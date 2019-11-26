@@ -1,2 +1,9 @@
 ---
-# tasks file for db-tier
+- name: install Postgres
+  yum:
+    name: "{{ packages }}"
+    state: latest
+  notify:
+    - initialize Postgres
+    - initialize Postgres after initdb
+    - start Postgres
